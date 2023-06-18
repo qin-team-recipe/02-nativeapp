@@ -43,3 +43,5 @@ yarn add react-native-scrollable-tab-view
 yarn add -D @types/react-native-scrollable-tab-view
 
 yarn add swr
+
+yarn add @react-navigation/bottom-tabs
