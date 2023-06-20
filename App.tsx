@@ -1,21 +1,11 @@
 import { NavigationContainer } from "@react-navigation/native"
-import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import { NativeBaseProvider } from "native-base"
-import { View, Text } from "react-native"
 import { RecoilRoot } from "recoil"
 import { SWRConfig } from "swr"
 
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Home Screen</Text>
-    </View>
-  )
-}
+import { TabNavigator } from "./src/layouts/tabNavigator"
 
-const Stack = createNativeStackNavigator()
-
-function App() {
+function App(): JSX.Element {
   return (
     <RecoilRoot>
       <SWRConfig
@@ -26,9 +16,7 @@ function App() {
       >
         <NativeBaseProvider>
           <NavigationContainer>
-            <Stack.Navigator>
-              <Stack.Screen name="Home" component={HomeScreen} />
-            </Stack.Navigator>
+            <TabNavigator />
           </NavigationContainer>
         </NativeBaseProvider>
       </SWRConfig>
