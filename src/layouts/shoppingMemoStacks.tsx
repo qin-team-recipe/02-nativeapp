@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 
-import { ShoppingMemoScreen } from "../screens/shoppingMemo/screen"
+import { ShoppingMemoScreen } from "../screens/shoppingMemo"
 
 const Stack = createNativeStackNavigator()
 
