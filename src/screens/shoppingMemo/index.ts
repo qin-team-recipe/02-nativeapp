@@ -1,1 +1,0 @@
-export { ShoppingMemoScreen } from "./screen"

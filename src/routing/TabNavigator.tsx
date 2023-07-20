@@ -1,9 +1,9 @@
 import { AntDesign, Feather } from "@expo/vector-icons"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 
-import { FavoriteStacks } from "./favoriteStacks"
-import { SearchStacks } from "./searchStacks"
-import { ShoppingMemoStacks } from "./shoppingMemoStacks"
+import { FavoriteStacks } from "./FavoriteStacks"
+import { SearchStacks } from "./SearchStacks"
+import { ShoppingListStacks } from "./ShoppingListStacks"
 
 // タブバー作成
 const Tab = createBottomTabNavigator()
@@ -43,8 +43,8 @@ export const TabNavigator: React.FC = () => {
         }}
       />
       <Tab.Screen
-        name="ShoppingMemoStacks"
-        component={ShoppingMemoStacks}
+        name="ShoppingListStacks"
+        component={ShoppingListStacks}
         options={{
           tabBarLabel: "お買い物",
           tabBarIcon: ({ focused, color, size }) => (
