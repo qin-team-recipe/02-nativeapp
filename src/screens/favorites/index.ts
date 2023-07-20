@@ -1,0 +1,1 @@
+export { FavoriteScreen } from "./screen"

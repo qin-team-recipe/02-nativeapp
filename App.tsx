@@ -3,7 +3,7 @@ import { NativeBaseProvider } from "native-base"
 import { RecoilRoot } from "recoil"
 import { SWRConfig } from "swr"
 
-import { TabNavigator } from "./src/layouts/tabNavigator"
+import { TabNavigator } from "./src/routing/TabNavigator"
 
 function App(): JSX.Element {
   return (
