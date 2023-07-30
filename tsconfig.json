@@ -2,10 +2,10 @@
   // https://docs.expo.dev/guides/typescript/
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true
-  },
-  "baseUrl": "./",
-  "paths": {
-    "@/*": ["./src/*"]
+    "strict": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   }
 }
