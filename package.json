@@ -21,6 +21,7 @@
     "lodash": "^4.17.21",
     "native-base": "^3.4.28",
     "react": "18.2.0",
+    "react-dom": "^18.2.0",
     "react-native": "0.71.8",
     "react-native-modal": "^13.0.1",
     "react-native-reanimated": "^3.3.0",
@@ -29,6 +30,7 @@
     "react-native-scrollable-tab-view": "^1.0.0",
     "react-native-snap-carousel": "^3.9.1",
     "react-native-svg": "13.4.0",
+    "react-native-web": "~0.18.11",
     "recoil": "^0.7.7",
     "swr": "^2.1.5"
   },
