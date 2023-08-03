@@ -3,17 +3,13 @@ import { NativeBaseProvider } from "native-base"
 import { RecoilRoot } from "recoil"
 import { SWRConfig } from "swr"
 
+import { fetcher } from "./src/libs/APIFetch"
 import { TabNavigator } from "./src/routing/TabNavigator"
 
 function App(): JSX.Element {
   return (
     <RecoilRoot>
-      <SWRConfig
-        value={{
-          fetcher: (resource, init) =>
-            fetch(resource, init).then((res) => res.json()),
-        }}
-      >
+      <SWRConfig value={{ fetcher }}>
         <NativeBaseProvider>
           <NavigationContainer>
             <TabNavigator />

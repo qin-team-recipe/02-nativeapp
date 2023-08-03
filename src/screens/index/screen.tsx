@@ -49,12 +49,13 @@ export const IndexScreen: React.FC = () => {
             title="シェフ"
             link={{ href: "/favorites", text: "もっと見る" }}
           ></SubHeader>
-          <TopChefList data={chefDummyData} />
+          <TopChefList />
         </VStack>
       </Stack>
 
+      {/* TODO: モーダルを実装してみる */}
       {/* モーダル */}
-      <DummyModal />
+      {/* <DummyModal /> */}
     </ViewContainer>
   )
 }
