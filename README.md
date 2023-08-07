@@ -39,9 +39,9 @@ ExpoGo 以外にも、エミュレータや ChromeDevTools にて確認可能
 
 | ディレクトリ名  | 内容 |
 | ------------- | ------------- |
-| hoge/index.ts  | main.goのみを配置  |
-| hoge/screens.tsx  | 環境変数ファイル  |
-| hoge/type.ts  | 定数ファイル（あまり使わないかも）  |
+| hoge/index.ts  | エクスポート用  |
+| hoge/screens.tsx  | ページコンポーネント  |
+| hoge/type.ts  | 型定義ファイル  |
 | hoge/components  | ページ固有コンポーネント・カスタムフック  |
 
 
