@@ -15,7 +15,7 @@ git clone https://github.com/qin-team-recipe/02-nativeapp.git [任意のファ�
 
 ## Running
 
-1. `expo start` でサーバー立ち上げ
+1. `npx expo start` でサーバー立ち上げ
 2. ExpoGo アプリから、ターミナルに表示された QR コードを読み取る
 
 ExpoGo 以外にも、エミュレータや ChromeDevTools にて確認可能
@@ -29,6 +29,16 @@ ExpoGo 以外にも、エミュレータや ChromeDevTools にて確認可能
   - 画面遷移の方法は Stack(通常の画面遷移)と Tab(タブバーを用いた画面遷移)を使用しています。
   - 現状、Tab ナビゲーション 3 画面の配下に、Stack ナビゲーションを紐づける形にしています。
     - 要検討（ログイン画面などはどうするかなど）
+
+## Coding Rules
+- コンポーネントはNativeBaseを使う
+  - ReactNative標準のコンポーネントではなく、NativeBaseからインポートする
+  - 将来のダークモード対応などの際に手を入れやすくなります
+  - おそらくほとんどがNativeBaseからインポート可能です
+- コミットメッセージの先頭にはGitMojiを用いる
+- ブランチ作成と同時に空コミットでWIPプルリクを作成する
+  - 作業中のタスクを把握しやすくするために`「[WIP]ブランチ名」`でプルリクを作成する
+  - 完了したら[WIP]を外してSlackにて報告し、1日後にセルフマージ
 
 ## RUNNED COMMAND
 
