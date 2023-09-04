@@ -1,5 +1,5 @@
 import { AntDesign } from "@expo/vector-icons"
-import { Box, Center, Icon, Pressable } from "native-base"
+import { Box, Icon, Pressable } from "native-base"
 import React from "react"
 import { useNavigation } from "@react-navigation/native"
 import {

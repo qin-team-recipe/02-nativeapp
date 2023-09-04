@@ -1,5 +1,5 @@
-import { Box, Center, Skeleton, Text } from "native-base"
-import { ScrollView, StyleSheet, View } from "react-native"
+import { Box, Center, Skeleton, ScrollView, View } from "native-base"
+import { StyleSheet } from "react-native"
 
 import { RecipeCard } from "../../../components/Card"
 import React from "react"

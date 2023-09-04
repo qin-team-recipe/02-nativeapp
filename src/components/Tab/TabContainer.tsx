@@ -5,8 +5,9 @@ import {
   ScrollView,
   useColorModeValue,
   Text,
+  View,
 } from "native-base"
-import { Dimensions, Animated, View } from "react-native"
+import { Dimensions, Animated } from "react-native"
 import { SceneMap, TabView } from "react-native-tab-view"
 
 interface Tab {
