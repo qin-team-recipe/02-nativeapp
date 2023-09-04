@@ -14,7 +14,7 @@ export const TabNavigator: React.FC = () => {
 
   return (
     <Tab.Navigator
-      initialRouteName="Search"
+      initialRouteName="Index"
       screenOptions={{
         tabBarActiveTintColor: ACTIVE_COLOR,
         tabBarInactiveTintColor: INACTIVE_COLOR,

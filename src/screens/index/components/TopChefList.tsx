@@ -54,18 +54,18 @@ const ChefCard: React.FC<ChefCardProps> = (props) => {
 
 export const TopChefList: React.FC = () => {
   const { data, error, isLoading, isEmpty } = useGetChefs()
-  console.log(data)
+  //console.log(data)
   const chefs = data?.data.lists
 
   // TODO: エラー・ローディング・空配列用コンポーネント作成
   if (error) {
-    return <div>エラー</div>
+    return <Text>エラー</Text>
   }
   if (isLoading) {
-    return <div>ローディング中</div>
+    return <Text>ローディング中</Text>
   }
   if (isEmpty) {
-    return <div>データがありません</div>
+    return <Text>データがありません</Text>
   }
 
   return (
