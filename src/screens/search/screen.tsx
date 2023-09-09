@@ -1,15 +1,16 @@
 import { RouteProp, useRoute } from "@react-navigation/native"
-import { RootStackParamList } from "@/routing/RootStackParamList"
-import { ViewContainer } from "../../components/layout"
 import { Box, Stack, VStack, HStack } from "native-base"
 import React, { useState } from "react"
+
 import { SearchResultRecipeList, SearchResultChefList } from "./components"
-import { TabContainer } from "../../components/Tab"
 import { PageBackButton } from "../../components/Button"
 import { SearchInputText } from "../../components/Form"
+import { TabContainer } from "../../components/Tab"
+import { ViewContainer } from "../../components/layout"
+import { SearchStackParamList } from "../../routing/"
 
 export const SearchScreen: React.FC = () => {
-  const route = useRoute<RouteProp<RootStackParamList, "Search">>()
+  const route = useRoute<RouteProp<SearchStackParamList, "Search">>()
   const [searchText, setSearchText] = useState<string>(
     route.params.searchText ?? ""
   )
@@ -37,7 +38,7 @@ export const SearchScreen: React.FC = () => {
           <PageBackButton />
         </Box>
         {/* 検索バー */}
-        <Box mr={2} ml={2} flex={1}>
+        <Box mr={1} ml={1} flex={1}>
           <SearchInputText
             initialSearchText={route.params.searchText ?? ""}
             onSubmitEditing={handleInputSubmitEditing}

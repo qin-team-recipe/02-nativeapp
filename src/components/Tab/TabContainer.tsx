@@ -1,4 +1,3 @@
-import React, { useCallback, useEffect, useState } from "react"
 import {
   Box,
   Pressable,
@@ -7,6 +6,7 @@ import {
   Text,
   View,
 } from "native-base"
+import React, { useCallback, useEffect, useState } from "react"
 import { Dimensions, Animated } from "react-native"
 import { SceneMap, TabView } from "react-native-tab-view"
 
@@ -102,7 +102,7 @@ export const TabContainer: React.FC<TabContainerProps> = ({
 
   const setContainerHeight = (containerHeight: number) => {
     //console.log(new Date().getTime() + " setContainerHeight=" + containerHeight)
-    if (height === 0 && containerHeight != 0) {
+    if (height === 0 && containerHeight !== 0) {
       setHeight(containerHeight + 30)
     }
   }

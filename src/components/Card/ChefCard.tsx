@@ -1,53 +1,88 @@
-import { Box, Image, Pressable, Text } from "native-base"
-// import { useRecoilState } from "recoil"
+import { useNavigation } from "@react-navigation/native"
+import { Box, HStack, Image, Text, VStack, Pressable } from "native-base"
+import { useState } from "react"
+import { Dimensions, StyleSheet } from "react-native"
 
-// import { ModalVisibilityState } from "../../libs/dummy"
+import { Chef } from "../../libs/APIFetch"
 
-export type RecommendChefPropsType = {
+export type ChefCardPropsType = {
   imgSize: {
     width: number
     height: number
   }
   image: string
-  title: string
-  firstName?: string
-  lastName?: string
-  recommend?: string
-  recipeCount?: number
+  chef: Chef
 }
 
-export const ChefCard: React.FC<RecommendChefPropsType> = (props) => {
-  // const handleToggleVisibleState = (): void => {
-  //   const [isVisible, setIsVisible] = useRecoilState(ModalVisibilityState)
-  //   setIsVisible((prevIsVisible) => !prevIsVisible)
-  // }
+export const ChefCard: React.FC<ChefCardPropsType> = (props) => {
+  const [isPressed, setIsPressed] = useState(false)
+  const navigation = useNavigation<any>()
+
+  // カードのテキスト幅取得(画面padding * 2 + space + 画像幅)
+  const descriptionWidth =
+    Dimensions.get("window").width - (16 * 2 + 16 + props.imgSize.width)
+
+  const handlePress = () => {
+    setIsPressed(true)
+    setTimeout(() => {
+      setIsPressed(false)
+      navigation.navigate("Chefs", { chef: props.chef })
+    }, 200)
+  }
 
   return (
-    <Pressable /*onPress={handleToggleVisibleState}*/>
-      <Box maxW={props.imgSize.width}>
-        <Image
-          source={{
-            // TODO:uriに変数が使えないので暫定対応
-            uri: "https://wallpaperaccess.com/full/317501.jpg",
-          }}
-          alt={`${props.title}の画像`}
-          resizeMode="contain"
-          rounded="2xl"
-          w={props.imgSize.width}
-          h={props.imgSize.height}
-        />
-        <Text
-          position="absolute"
-          bottom={2}
-          left={2}
-          numberOfLines={2}
-          fontSize="md"
-          fontWeight="bold"
-          color="white"
-        >
-          {props.title}
-        </Text>
-      </Box>
+    <Pressable onPress={handlePress}>
+      <HStack space={4}>
+        <Box style={styles.container}>
+          <Image
+            source={{
+              // TODO:uriに変数が使えないので暫定対応
+              uri: "https://wallpaperaccess.com/full/317501.jpg",
+            }}
+            alt={`${props.chef.display_name}の画像`}
+            resizeMode="contain"
+            rounded="2xl"
+            w={props.imgSize.width}
+            h={props.imgSize.height}
+          />
+          {isPressed && <Box style={styles.highLight} />}
+        </Box>
+        <VStack justifyContent="space-between" w="auto">
+          <VStack>
+            <Text
+              mb={1}
+              numberOfLines={1}
+              fontSize="lg"
+              fontWeight="bold"
+            >{`${props.chef.display_name}`}</Text>
+            <Text numberOfLines={3} color="gray.400" maxW={descriptionWidth}>
+              {props.chef.description}
+            </Text>
+          </VStack>
+          <HStack>
+            {/*
+            TODO:uriに変数が使えないので暫定対応
+            <Image source={{ uri: icon }} />
+          */}
+            <Text>{props.chef.recipes_count}&nbsp;レシピ</Text>
+          </HStack>
+        </VStack>
+      </HStack>
     </Pressable>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    position: "relative",
+  },
+  highLight: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    backgroundColor: "white",
+    opacity: 0.3,
+  },
+})
