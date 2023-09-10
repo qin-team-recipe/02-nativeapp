@@ -4,4 +4,4 @@ export {
   SearchStackParamList,
   RootStackParamList,
 } from "./RootStackParamList"
-export { RootStakNavigator } from "./RootStakNavigator"
+export { RootStackNavigator } from "./RootStackNavigator"

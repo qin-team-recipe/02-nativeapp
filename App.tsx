@@ -4,7 +4,7 @@ import { RecoilRoot } from "recoil"
 import { SWRConfig } from "swr"
 
 import { fetcher } from "./src/libs/APIFetch"
-import { RootStakNavigator } from "./src/routing/"
+import { RootStackNavigator } from "./src/routing/"
 
 function App(): JSX.Element {
   return (
@@ -12,7 +12,7 @@ function App(): JSX.Element {
       <SWRConfig value={{ fetcher }}>
         <NativeBaseProvider>
           <NavigationContainer>
-            <RootStakNavigator />
+            <RootStackNavigator />
           </NavigationContainer>
         </NativeBaseProvider>
       </SWRConfig>

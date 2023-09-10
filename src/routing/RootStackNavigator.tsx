@@ -6,7 +6,7 @@ import { RecipesScreen } from "../screens/recipes"
 
 const Stack = createNativeStackNavigator()
 
-export const RootStakNavigator: React.FC = () => {
+export const RootStackNavigator: React.FC = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Index" component={TabNavigator} />
