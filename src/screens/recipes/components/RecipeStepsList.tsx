@@ -15,7 +15,7 @@ export const RecipeStepsList: React.FC<{ recipe: Recipe }> = (props) => {
         <ScrollView w="full">
           {skeltonArray?.map((_, index) => (
             <View key={index} m={2} w="full">
-              <Skeleton.Text rounded="md" mt={2} lines={2} w="full" />
+              <Skeleton.Text rounded="md" mt={2} mb={2} lines={2} w="full" />
               <View
                 borderWidth={0.5}
                 borderBottomStyle="solid"
@@ -48,7 +48,9 @@ export const RecipeStepsList: React.FC<{ recipe: Recipe }> = (props) => {
         <>
           {steps?.map((step: Step, index: number) => (
             <VStack key={index}>
-              <RecipeStepCard step={step} />
+              <View>
+                <RecipeStepCard step={step} />
+              </View>
               <View
                 borderWidth={0.5}
                 borderBottomStyle="solid"

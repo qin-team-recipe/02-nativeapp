@@ -21,7 +21,7 @@ export const RecipeIngredientsList: React.FC<{ recipe: Recipe }> = (props) => {
         <ScrollView w="full">
           {skeltonArray?.map((_, index) => (
             <View key={index} m={2} w="full">
-              <Skeleton.Text rounded="md" mt={2} lines={2} w="full" />
+              <Skeleton.Text rounded="md" mt={2} mb={2} lines={2} w="full" />
               <View
                 borderWidth={0.5}
                 borderBottomStyle="solid"

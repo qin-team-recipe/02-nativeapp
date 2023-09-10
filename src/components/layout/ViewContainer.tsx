@@ -1,7 +1,7 @@
-import { Box, ScrollView, StatusBar } from "native-base"
+import { Box, ScrollView, StatusBar, View } from "native-base"
+import { SafeAreaView } from "react-native"
 
 import { colors } from "../../constants"
-
 type Props = {
   children?: React.ReactNode
   bgColor?: string
@@ -15,12 +15,20 @@ export const ViewContainer: React.FC<Props> = (props) => {
       flexDir="column"
       justifyContent="flex-start"
       alignItems="stretch"
-      bgColor={props.bgColor || colors.white}
+      bgColor="black"
+      //bgColor={props.bgColor || colors.white}
     >
-      <StatusBar barStyle="light-content" />
-      <ScrollView showsVerticalScrollIndicator={false} p={props.padding || 0}>
-        {props.children}
-      </ScrollView>
+      <SafeAreaView style={{ backgroundColor: "black" }}>
+        <View bgColor={props.bgColor || colors.white}>
+          <StatusBar barStyle="light-content" />
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+            p={props.padding || 0}
+          >
+            {props.children}
+          </ScrollView>
+        </View>
+      </SafeAreaView>
     </Box>
   )
 }
