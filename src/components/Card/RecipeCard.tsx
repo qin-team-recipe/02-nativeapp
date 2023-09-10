@@ -1,5 +1,13 @@
 import { useNavigation } from "@react-navigation/native"
-import { Box, Image, Pressable, Text, VStack } from "native-base"
+import {
+  Box,
+  Center,
+  Image,
+  Pressable,
+  Spinner,
+  Text,
+  VStack,
+} from "native-base"
 import { useState } from "react"
 import { StyleSheet } from "react-native"
 
@@ -40,7 +48,11 @@ export const RecipeCard: React.FC<RecipeCardPropsType> = (props) => {
             h={props.imgSize}
           />
           <FavoriteCount count={props.recipe.favorites_count} />
-          {isPressed && <Box style={styles.highLight} />}
+          {isPressed && (
+            <Center style={styles.highLight}>
+              <Spinner size="lg">Loading</Spinner>
+            </Center>
+          )}
         </Box>
         <VStack mt={1} px={1}>
           <Text numberOfLines={2} fontWeight="bold">
@@ -61,6 +73,8 @@ const styles = StyleSheet.create({
   },
   highLight: {
     position: "absolute",
+    flex: 1,
+    justifyContent: "center",
     top: 0,
     left: 0,
     width: "100%",

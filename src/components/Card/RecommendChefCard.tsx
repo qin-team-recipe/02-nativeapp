@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native"
-import { Box, Image, Pressable, Text } from "native-base"
+import { Box, Center, Image, Pressable, Spinner, Text } from "native-base"
 import { useState } from "react"
 import { StyleSheet } from "react-native"
 
@@ -59,9 +59,13 @@ export const RecommendChefCard: React.FC<RecommendChefCardPropsType> = (
           fontWeight="bold"
           color="white"
         >
-          {props.chef.description}
+          {props.chef.display_name}
         </Text>
-        {isPressed && <Box style={styles.highLight} />}
+        {isPressed && (
+          <Center style={styles.highLight}>
+            <Spinner size="lg">Loading</Spinner>
+          </Center>
+        )}
       </Box>
     </Pressable>
   )
@@ -73,6 +77,8 @@ const styles = StyleSheet.create({
   },
   highLight: {
     position: "absolute",
+    flex: 1,
+    justifyContent: "center",
     top: 0,
     left: 0,
     width: "100%",

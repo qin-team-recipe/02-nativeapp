@@ -5,9 +5,11 @@ import {
   useColorModeValue,
   Text,
   View,
+  Center,
+  Spinner,
 } from "native-base"
 import React, { useCallback, useEffect, useState } from "react"
-import { Dimensions, Animated } from "react-native"
+import { Dimensions, Animated, StyleSheet } from "react-native"
 import { SceneMap, TabView } from "react-native-tab-view"
 
 interface Tab {
@@ -19,6 +21,8 @@ interface TabContainerProps {
   tabs: Tab[]
   activeIndex?: number
 }
+
+const windowHeight = Dimensions.get("window").height
 
 export const TabContainer: React.FC<TabContainerProps> = ({
   tabs,
@@ -32,7 +36,6 @@ export const TabContainer: React.FC<TabContainerProps> = ({
       title: tab.title,
     }))
   )
-
   useEffect(() => {
     const routes = tabs.map((tab) => ({
       key: tab.title,
@@ -72,7 +75,7 @@ export const TabContainer: React.FC<TabContainerProps> = ({
               >
                 <Pressable
                   onPress={() => {
-                    onIndexChange(i)
+                    handleOnIndexChange(i)
                   }}
                 >
                   <Box
@@ -103,17 +106,19 @@ export const TabContainer: React.FC<TabContainerProps> = ({
   const setContainerHeight = (containerHeight: number) => {
     //console.log(new Date().getTime() + " setContainerHeight=" + containerHeight)
     if (height === 0 && containerHeight !== 0) {
-      setHeight(containerHeight + 30)
+      const newHeight =
+        containerHeight < windowHeight ? windowHeight : containerHeight + 30
+      setHeight(newHeight)
     }
   }
-  const onIndexChange = (index: number) => {
+  const handleOnIndexChange = (index: number) => {
     //console.log(new Date().getTime() + " onIndexChange index=" + index)
     setIndex(index)
     setHeight(0)
   }
 
   return (
-    <View>
+    <View style={styles.container}>
       <ScrollView style={{ flex: 1 }}>
         <TabView
           navigationState={{
@@ -122,7 +127,7 @@ export const TabContainer: React.FC<TabContainerProps> = ({
           }}
           renderScene={renderScene}
           renderTabBar={renderTabBar}
-          onIndexChange={onIndexChange}
+          onIndexChange={handleOnIndexChange}
           initialLayout={{ width: Dimensions.get("window").width }}
           style={{ height }}
         />
@@ -175,6 +180,30 @@ export const TabContainer: React.FC<TabContainerProps> = ({
           </View>
         ))}
       </ScrollView>
+      {height === 0 && (
+        <Center style={styles.highLight}>
+          <Spinner size="lg" top={20}>
+            Loading
+          </Spinner>
+        </Center>
+      )}
     </View>
   )
 }
+const styles = StyleSheet.create({
+  container: {
+    position: "relative",
+    flex: 1,
+  },
+  highLight: {
+    flex: 1,
+    justifyContent: "flex-start",
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    backgroundColor: "white",
+    opacity: 0.3,
+  },
+})
