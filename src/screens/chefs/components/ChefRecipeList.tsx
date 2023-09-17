@@ -1,15 +1,18 @@
-import { Box, Center, Skeleton, ScrollView, View } from "native-base"
-import React from "react"
+import { Box, Center, ScrollView, Skeleton, View } from "native-base"
 import { StyleSheet } from "react-native"
 
 import { RecipeCard } from "../../../components/Card"
-import { Recipe, useSearchRecipes } from "../../../libs/APIFetch/"
+import { useGetChefRecipes, ChefRecipe } from "../../../libs/APIFetch"
 
-export const SearchResultRecipeList: React.FC<{ searchText: string }> = (
-  props
-) => {
-  const { data, error, isLoading, isEmpty } = useSearchRecipes(props.searchText)
-  const recipes = data?.data?.lists
+export const ChefRecipeList: React.FC<{
+  type: "latest" | "favorites"
+  chefId: number
+}> = (props) => {
+  const { data, error, isLoading, isEmpty } = useGetChefRecipes(
+    props.type,
+    props.chefId
+  )
+  const chefRecipes: ChefRecipe[] = data?.data?.lists
 
   if (isLoading) {
     const skeltonArray = [1, 2, 3, 4, 5, 6]
@@ -37,35 +40,31 @@ export const SearchResultRecipeList: React.FC<{ searchText: string }> = (
   if (isEmpty) {
     return (
       <Center>
-        <Box m={2}>検索結果がありませんでした</Box>
+        <Box m={2}>データがありませんでした</Box>
       </Center>
     )
   }
-
   return (
-    <Center>
-      <ScrollView contentContainerStyle={styles.container}>
-        <>
-          {recipes?.map((recipe: Recipe, index: number) => (
-            <View style={styles.item} key={index}>
-              <RecipeCard imgSize={160} image="" recipe={recipe} />
+    <ScrollView contentContainerStyle={styles.container}>
+      <>
+        {chefRecipes?.map((chefRecipe: ChefRecipe, index: number) => (
+          <View style={styles.item} key={index}>
+            <RecipeCard imgSize={160} image="" recipe={chefRecipe.recipe} />
+          </View>
+        ))}
+        {
+          // 検索結果が1件の場合RecipeCardが中央に表示されてしまうため、
+          // RecipeCardが左列に表示されるように空の要素を追加
+          chefRecipes?.length === 1 && (
+            <View style={styles.item}>
+              <Box w={160} />
             </View>
-          ))}
-          {
-            // 検索結果が1件の場合RecipeCardが中央に表示されてしまうため、
-            // RecipeCardが左列に表示されるように空の要素を追加
-            recipes?.length === 1 && (
-              <View style={styles.item}>
-                <Box w={160} />
-              </View>
-            )
-          }
-        </>
-      </ScrollView>
-    </Center>
+          )
+        }
+      </>
+    </ScrollView>
   )
 }
-
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",

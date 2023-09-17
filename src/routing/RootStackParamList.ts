@@ -1,9 +1,22 @@
 import { NavigationProp } from "@react-navigation/native"
 
-export type StackNavigation = NavigationProp<RootStackParamList>
+import { Chef, Recipe } from "../libs/APIFetch/"
+
+export type StackNavigation = NavigationProp<
+  RootStackParamList | SearchStackParamList
+>
 
 export type RootStackParamList = {
-  Index: {}
+  Recipes: {
+    recipe: Recipe
+  }
+  Chefs: {
+    chef: Chef
+  }
+}
+
+export type SearchStackParamList = {
+  Index: object
   Search: {
     searchText?: string
   }
