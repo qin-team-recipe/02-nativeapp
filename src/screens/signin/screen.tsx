@@ -1,15 +1,11 @@
 import { RouteProp, useNavigation, useRoute } from "@react-navigation/native"
 import * as Google from "expo-auth-session/providers/google"
+import Constants from "expo-constants"
 import { View, Text, Button, HStack, VStack, Image } from "native-base"
 import { useEffect } from "react"
 
 import { useAuth } from "../../components/Auth"
-import {
-  API_URL,
-  ANDORIOD_CLIENT_ID,
-  EXPO_CLIENT_ID,
-  GOOGLE_USER_INFO_API_URL,
-} from "../../constants"
+import { API_URL, GOOGLE_USER_INFO_API_URL } from "../../constants"
 import { RootStackParamList } from "../../routing"
 
 const favoriteImage = require("../../../assets/signin/favorites.png")
@@ -19,8 +15,10 @@ export const SigninScreen: React.FC = () => {
   const route = useRoute<RouteProp<RootStackParamList, "Signin">>()
   const { signin, signout } = useAuth()
   const [, response, promptAsync] = Google.useAuthRequest({
-    androidClientId: ANDORIOD_CLIENT_ID,
-    expoClientId: EXPO_CLIENT_ID,
+    androidClientId:
+      Constants?.manifest?.extra?.GoogleAuthentication.androidClientId,
+    iosClientId: Constants?.manifest?.extra?.GoogleAuthentication.iosClientId,
+    expoClientId: Constants?.manifest?.extra?.GoogleAuthentication.expoClientId,
   })
 
   const navigation = useNavigation<any>()
