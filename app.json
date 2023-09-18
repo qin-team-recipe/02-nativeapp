@@ -4,27 +4,27 @@
     "slug": "02-nativeapp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logo/IchiryuRecipe_Favicon_256×256px.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/logo/IchiryuRecipe_tate.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/logo/IchiryuRecipe_Favicon_256×256px.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "googleServicesFile": "./google-services.json",
+      "package": "host.exp.exponent"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/logo/IchiryuRecipe_Favicon_32×32px.png"
     }
   }
 }

@@ -13,6 +13,9 @@ export type RootStackParamList = {
   Chefs: {
     chef: Chef
   }
+  Signin: {
+    sourceScreen: string
+  }
 }
 
 export type SearchStackParamList = {
@@ -20,4 +23,14 @@ export type SearchStackParamList = {
   Search: {
     searchText?: string
   }
+}
+
+export type FavoriteStackParamList = {
+  Signin: object
+  Favorite: object
+}
+
+export type ShoppingListStackParamList = {
+  Signin: object
+  ShoppingList: object
 }
