@@ -108,3 +108,12 @@ ExpoGo 以外にも、エミュレータや ChromeDevTools にて確認可能
 
 4. クライアントIDをapp.jsonに設定  
 　手順3で生成されたクライアントIDをコピーし、app.jsonのexpo.extra.GoogleAuthentication.expoClientIdに設定  
+　※androidClientId、iosClientIdはビルド用。使用しない時は削除して問題ない。
+```
+    "extra": {
+      "ApiUrl": "http://192.168.3.12:8080/api/v1",
+      "GoogleAuthentication": {
+        "expoClientId" : "525448299649-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.apps.googleusercontent.com"
+      }
+    }
+```
