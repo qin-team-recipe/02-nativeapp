@@ -16,9 +16,9 @@ export const SigninScreen: React.FC = () => {
   const { signin, signout } = useAuth()
   const [, response, promptAsync] = Google.useAuthRequest({
     androidClientId:
-      Constants?.manifest?.extra?.GoogleAuthentication.androidClientId,
-    iosClientId: Constants?.manifest?.extra?.GoogleAuthentication.iosClientId,
-    expoClientId: Constants?.manifest?.extra?.GoogleAuthentication.expoClientId,
+      Constants?.manifest?.extra?.googleAuthentication.androidClientId,
+    iosClientId: Constants?.manifest?.extra?.googleAuthentication.iosClientId,
+    expoClientId: Constants?.manifest?.extra?.googleAuthentication.expoClientId,
   })
 
   const navigation = useNavigation<any>()

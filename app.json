@@ -27,8 +27,8 @@
       "favicon": "./assets/logo/IchiryuRecipe_Favicon_32×32px.png"
     },
     "extra": {
-      "ApiUrl": "http://XXX.XXX.XXX.XXX:XXXXX/api/v1",
-      "GoogleAuthentication": {
+      "apiUrl": "http://XXX.XXX.XXX.XXX:XXXXX/api/v1",
+      "googleAuthentication": {
         "androidClientId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
         "iosClientId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
         "expoClientId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
