@@ -21,7 +21,6 @@
         "foregroundImage": "./assets/logo/IchiryuRecipe_Favicon_256×256px.png",
         "backgroundColor": "#ffffff"
       },
-      "googleServicesFile": "./google-services.json",
       "package": "host.exp.exponent"
     },
     "web": {
