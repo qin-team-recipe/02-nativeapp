@@ -12,6 +12,7 @@ git clone https://github.com/qin-team-recipe/02-nativeapp.git [任意のファ�
 2. expo-cli をグローバルインストール `yarn global add expo-cli`
 3. `yarn install` or `npm install`
 4. お使いのスマホに ExpoGo のアプリをインストール
+5. app.jsonのexpo.extra.apiUrl(バックエンドAPIのURL)を自分の環境に合わせて設定
 
 ## Running
 
@@ -87,3 +88,23 @@ ExpoGo 以外にも、エミュレータや ChromeDevTools にて確認可能
 - yarn add -D @types/react-native-scrollable-tab-view
 - yarn add swr
 - yarn add @react-navigation/bottom-tabs
+
+### Google SSO SETTINGS
+前提：Expo Goを利用する場合  
+　※ExpoGoを使わずにAndroidやIOSアプリからGoogleSSOを利用する場合は手順が異なります。  
+
+1. [GoogleDevelopersConsole](https://console.developers.google.com/project) にアクセス   
+2. プロジェクトを作成する  
+　※Webアプリ開発で作成済みの場合は同じプロジェクトを使う 
+3. 認証情報(OAuthクライアントID)を登録  
+![SSO認証情報1](https://github.com/qin-team-recipe/02-nativeapp/assets/5800064/8a1a7576-5645-434e-a325-07c6a2440e92)
+
+| 設定項目  | 値 |
+| ------------- | ------------- |
+| アプリケーションの種類  | ウェブアプリケーション  |
+| 名前  | 02-nativeapp  |
+| 承認済みのJavascript生成元  | https://auth.expo.io |
+| 承認済みのリダイレクトURI  | https://auth.expo.io/@{ExpoのユーザID}/02-nativeapp  |
+
+4. クライアントIDをapp.jsonに設定  
+　手順3で生成されたクライアントIDをコピーし、app.jsonのexpo.extra.GoogleAuthentication.expoClientIdに設定  
