@@ -15,7 +15,7 @@ export const ViewContainer: React.FC<Props> = (props) => {
       flexDir="column"
       justifyContent="flex-start"
       alignItems="stretch"
-      bgColor="black"
+      bgColor="white"
       //bgColor={props.bgColor || colors.white}
     >
       <SafeAreaView style={{ backgroundColor: "black" }}>

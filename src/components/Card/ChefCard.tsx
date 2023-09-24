@@ -49,7 +49,7 @@ export const ChefCard: React.FC<ChefCardPropsType> = (props) => {
               uri: "https://wallpaperaccess.com/full/317501.jpg",
             }}
             alt={`${props.chef.display_name}の画像`}
-            resizeMode="contain"
+            resizeMode="stretch"
             rounded="2xl"
             w={props.imgSize.width}
             h={props.imgSize.height}
