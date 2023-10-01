@@ -1,0 +1,1 @@
+export { SettingScreen } from "./screen"

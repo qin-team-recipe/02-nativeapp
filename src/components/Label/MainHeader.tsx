@@ -19,23 +19,22 @@ export const MainHeader: React.FC<MainHeaderProps> = (props) => {
   let leftItem: JSX.Element | undefined = undefined
   if (props.leftItem === "setting") {
     leftItem = (
-      <TouchableOpacity onPress={() => onPressSetting}>
-        <Icon as={<Ionicons name="menu" />} size="5" ml="2" color="black" />
+      <TouchableOpacity onPress={() => onPressSetting()}>
+        <Icon as={<Ionicons name="menu" />} size="5" color="black" />
       </TouchableOpacity>
     )
   } else if (props.leftItem === "pageback") {
     leftItem = <PageBackButton />
   }
   const onPressSetting = () => {
-    console.log("setting")
-    //navigation.navigate("Setting", {})
+    navigation.navigate("Setting", {})
   }
 
   // 右アイテム
   let rightItem: JSX.Element | undefined = undefined
   if (props.rightItem === "mypage") {
     rightItem = (
-      <TouchableOpacity onPress={() => onPressMyPage}>
+      <TouchableOpacity onPress={() => onPressMyPage()}>
         <Icon
           as={<FontAwesome name="user-circle-o" />}
           size="5"

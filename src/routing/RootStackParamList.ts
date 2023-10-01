@@ -19,6 +19,7 @@ export type RootStackParamList = {
   Signup: {
     googleUser: GoogleUser
   }
+  Setting: object
 }
 
 export type SearchStackParamList = {

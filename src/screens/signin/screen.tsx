@@ -119,7 +119,10 @@ export const SigninScreen: React.FC = () => {
   const isFavoraitePage = route.params.sourceScreen === "Favorite"
   return (
     <ViewContainer>
-      <MainHeader title={isFavoraitePage ? "お気に入り" : "買い物リスト"} />
+      <MainHeader
+        title={isFavoraitePage ? "お気に入り" : "買い物リスト"}
+        leftItem="setting"
+      />
       <VStack flex={1} alignItems="center">
         <Image
           source={isFavoraitePage ? favoriteImage : shoppingListImage}
@@ -141,14 +144,18 @@ export const SigninScreen: React.FC = () => {
           >
             <HStack>
               <Icon as={<AntDesign name="google" />} size="5" color="white" />
-              <Text color="white">Googleログイン</Text>
+              <Text color="white" ml={1}>
+                Googleログイン
+              </Text>
             </HStack>
           </Button>
           <View m="2"></View>
           <Button backgroundColor="black" disabled>
             <HStack>
               <Icon as={<AntDesign name="apple1" />} size="5" color="white" />
-              <Text color="white">Appleログイン</Text>
+              <Text color="white" ml={1}>
+                Appleログイン
+              </Text>
             </HStack>
           </Button>
         </HStack>
