@@ -9,7 +9,7 @@ const Stack = createNativeStackNavigator()
 export const ShoppingListStacks: React.FC = () => {
   const { isAuthenticated } = useAuth()
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
       {isAuthenticated ? (
         <Stack.Screen name="ShoppingList" component={ShoppingListScreen} />
       ) : (

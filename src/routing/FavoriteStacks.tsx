@@ -9,7 +9,7 @@ const Stack = createNativeStackNavigator()
 export const FavoriteStacks: React.FC = () => {
   const { isAuthenticated } = useAuth()
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
       {isAuthenticated ? (
         <Stack.Screen name="Favorite" component={FavoriteScreen} />
       ) : (

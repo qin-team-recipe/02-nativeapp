@@ -80,7 +80,8 @@ export const TabContainer: React.FC<TabContainerProps> = ({
       // 高さを一度も計算していなければ計算して保持する
       if (heights[index] === 0 && containerHeight !== 0) {
         const newHeights = [...heights]
-        newHeights[index] = containerHeight
+        newHeights[index] =
+          containerHeight > windowHeight ? containerHeight : windowHeight
         setHeights(newHeights)
       }
     },

@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "02-nativeapp",
+    "name": "一流レシピ",
     "slug": "02-nativeapp",
     "scheme": "jp.qin.recipe.02-nativeapp",
     "version": "1.0.0",
@@ -21,7 +21,7 @@
         "foregroundImage": "./assets/logo/IchiryuRecipe_Favicon_256×256px.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "host.exp.exponent"
+      "package": "jp.qin.recipe"
     },
     "web": {
       "favicon": "./assets/logo/IchiryuRecipe_Favicon_32×32px.png"
@@ -32,6 +32,9 @@
         "androidClientId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
         "iosClientId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
         "expoClientId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+      },
+      "eas": {
+        "projectId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
       }
     }
   }

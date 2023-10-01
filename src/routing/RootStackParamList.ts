@@ -1,6 +1,6 @@
 import { NavigationProp } from "@react-navigation/native"
 
-import { Chef, Recipe } from "../libs/APIFetch/"
+import { Chef, GoogleUser, Recipe } from "../libs/APIFetch/"
 
 export type StackNavigation = NavigationProp<
   RootStackParamList | SearchStackParamList
@@ -16,6 +16,10 @@ export type RootStackParamList = {
   Signin: {
     sourceScreen: string
   }
+  Signup: {
+    googleUser: GoogleUser
+  }
+  Setting: object
 }
 
 export type SearchStackParamList = {

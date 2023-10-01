@@ -71,3 +71,10 @@ export type ChefRecipe = {
   recipe_id: number
   recipe: Recipe
 }
+
+export type GoogleUser = {
+  display_name: string
+  email: string
+  service_name: string
+  service_user_id: string
+}

@@ -38,4 +38,5 @@ export {
   Ingredient,
   Link,
   ChefRecipe,
+  GoogleUser,
 } from "./type"
